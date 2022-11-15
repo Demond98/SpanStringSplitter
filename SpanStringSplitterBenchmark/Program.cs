@@ -6,6 +6,7 @@ BenchmarkDotNet.Running.BenchmarkRunner.Run<Test>();
 [MemoryDiagnoser]
 public class Test
 {
+	private const char Separator = '\n';
 	private string Data = null!;
 
 	[Params(100, 1000, 10000)]
@@ -15,15 +16,15 @@ public class Test
 	public void Setup()
 	{
 		var lines = Enumerable.Range(1, N);
-		Data = string.Join('\n', lines);
+		Data = string.Join(Separator, lines);
 	}
 
 	[Benchmark]
-	public bool SystemSplit()
+	public bool Split_System()
 	{
 		var result = false;
 
-		foreach (var line in Data.Split('\n'))
+		foreach (var line in Data.Split(Separator))
 			if (line[0] != 'L')
 				result = false;
 
@@ -31,11 +32,11 @@ public class Test
 	}
 
 	[Benchmark]
-	public bool SpanSplit()
+	public bool Split_Span()
 	{
 		var result = false;
 
-		foreach (var line in Data.SpanSplit('\n'))
+		foreach (var line in Data.SpanSplit(Separator))
 			if (line[0] != 'L')
 				result = false;
 
