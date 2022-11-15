@@ -27,8 +27,16 @@ public ref struct SplitEnumeration
 	{
 		_prevIndex = _nextIndex + 1;
 		
-		if (_prevIndex >= _str.Length)
+		if (_prevIndex > _str.Length)
+		{
+			if (_str.Length != 0 && _nextIndex == _str.Length - 1)
+			{
+				_prevIndex = _nextIndex = _str.Length - 1;
+				return true;
+			}
+			
 			return false;
+		}
 
 		_nextIndex = _str[_prevIndex..].IndexOf(_separator);
 
