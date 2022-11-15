@@ -26,7 +26,7 @@ public class Test
 
 		foreach (var line in Data.Split(Separator))
 			if (line[0] != 'L')
-				result = false;
+				result = true;
 
 		return result;
 	}
@@ -38,7 +38,7 @@ public class Test
 
 		foreach (var line in Data.SpanSplit(Separator))
 			if (line[0] != 'L')
-				result = false;
+				result = true;
 
 		return result;
 	}

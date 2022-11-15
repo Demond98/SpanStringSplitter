@@ -10,6 +10,7 @@ public ref struct SplitEnumeration
 	
 	private int _prevIndex;
 	private int _nextIndex;
+	private ReadOnlySpan<char> _current;
 
 	public SplitEnumeration(string str, char separator)
 	{
@@ -18,10 +19,11 @@ public ref struct SplitEnumeration
 
 		_prevIndex = 0;
 		_nextIndex = -1;
+		_current = null;
 	}
 
 	public SplitEnumeration GetEnumerator() => this;
-	public ReadOnlySpan<char> Current => _str[_prevIndex.._nextIndex];
+	public ReadOnlySpan<char> Current => _current;
 
 	public bool MoveNext()
 	{
@@ -44,6 +46,8 @@ public ref struct SplitEnumeration
 			_nextIndex = _str.Length;
 		else
 			_nextIndex += _prevIndex;
+
+		_current = _str[_prevIndex.._nextIndex];
 
 		return true;
 	}
