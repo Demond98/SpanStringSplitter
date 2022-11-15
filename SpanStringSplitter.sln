@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32728.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanStringSplitter", "SpanStringSplitter\SpanStringSplitter.csproj", "{D862B334-8A53-44C9-89E3-ED12813400CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanStringSplitterBenchmark", "SpanStringSplitterBenchmark\SpanStringSplitterBenchmark.csproj", "{A4AD7958-81EB-4DD5-8FF3-995ECCC52BF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanStringSplitter.Benchmark", "SpanStringSplitterBenchmark\SpanStringSplitter.Benchmark.csproj", "{A4AD7958-81EB-4DD5-8FF3-995ECCC52BF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanStringSplitter.Tests", "SpanStringSplitter.Tests\SpanStringSplitter.Tests.csproj", "{980E4F72-AE87-4BFF-9127-4163292F0C71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A4AD7958-81EB-4DD5-8FF3-995ECCC52BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4AD7958-81EB-4DD5-8FF3-995ECCC52BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4AD7958-81EB-4DD5-8FF3-995ECCC52BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980E4F72-AE87-4BFF-9127-4163292F0C71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980E4F72-AE87-4BFF-9127-4163292F0C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980E4F72-AE87-4BFF-9127-4163292F0C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980E4F72-AE87-4BFF-9127-4163292F0C71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
