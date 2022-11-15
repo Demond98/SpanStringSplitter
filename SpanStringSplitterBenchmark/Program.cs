@@ -8,7 +8,7 @@ public class Test
 {
 	private string Data = null!;
 
-	[Params(100, 1000)]
+	[Params(100, 1000, 10000)]
 	public int N;
 
 	[GlobalSetup]
