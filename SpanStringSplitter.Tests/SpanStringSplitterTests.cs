@@ -8,7 +8,7 @@ namespace SpanStringSplitter.Tests
 		{
 			var result = new List<string>();
 
-			foreach (var item in str.SpanSplit(separator))
+			foreach (var item in str.AsSpan().SpanSplit(separator))
 				result.Add(item.ToString());
 
 			return result;

@@ -1,34 +1,37 @@
 ﻿using System;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace SpanStringSplitter;
 
 public ref struct SplitEnumeration
 {
+	//Enumeration<char>
+	public SplitEnumeration GetEnumerator() => this;
+
+	//Enumerator<char>
+	public ReadOnlySpan<char> Current => _current;
+	public bool MoveNext() => CalculateNext();
+
 	private readonly ReadOnlySpan<char> _str;
-	private readonly char _separator;
-	
+	private readonly char _separator;	
 	private int _prevIndex;
 	private int _nextIndex;
 	private ReadOnlySpan<char> _current;
 
-	public SplitEnumeration(string str, char separator)
+	public SplitEnumeration(ReadOnlySpan<char> str, char separator)
 	{
 		_str = str;
 		_separator = separator;
-
 		_prevIndex = 0;
 		_nextIndex = -1;
 		_current = null;
 	}
 
-	public SplitEnumeration GetEnumerator() => this;
-	public ReadOnlySpan<char> Current => _current;
-
-	public bool MoveNext()
+	private bool CalculateNext()
 	{
 		_prevIndex = _nextIndex + 1;
-		
+
 		if (_prevIndex > _str.Length)
 		{
 			if (_str.Length != 0 && _nextIndex == _str.Length - 1)
@@ -36,7 +39,7 @@ public ref struct SplitEnumeration
 				_prevIndex = _nextIndex = _str.Length - 1;
 				return true;
 			}
-			
+
 			return false;
 		}
 

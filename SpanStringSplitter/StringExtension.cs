@@ -2,6 +2,6 @@
 
 public static class StringExtension
 {
-	public static SplitEnumeration SpanSplit(this string stringToSplit, char separator)
-		=> new(stringToSplit, separator);
+	public static SplitEnumeration SpanSplit(this ReadOnlySpan<char> stringToSplit, char separator)
+		=> new SplitEnumeration(stringToSplit, separator);
 }
